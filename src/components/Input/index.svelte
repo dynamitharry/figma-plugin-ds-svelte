@@ -11,6 +11,7 @@
     export let iconName = null;
     export let spin = false;
     export let invalid = false;
+    export let maxlength = null;
     export let errorMessage = 'Error message';
     export let placeholder = 'Input something here...';
     export { className as class };
@@ -36,6 +37,7 @@
             {name}
             {disabled}
             {placeholder}
+            {maxlength}
             {errorMessage}
             class="indent"
             class:borders={borders}
@@ -61,6 +63,7 @@
             {name}
             {disabled}
             {placeholder}
+            {maxlength}
             {errorMessage}
             class:borders={borders}
             class:invalid={invalid}
