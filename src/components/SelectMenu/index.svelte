@@ -20,9 +20,37 @@
     let className = '';
     let groups = checkGroups();
     let menuWrapper, menuButton, menuList;
+    let menuOpen = false;
     $:menuItems, updateSelectedAndIds();
 
     //FUNCTIONS
+
+        function handleKeydown(event) {
+        if (menuOpen) {
+            // Close menu when Escape key is pressed
+            if (event.key === 'Escape') {
+                menuOpen = false;
+                menuList.classList.add('hidden'); //hide the menu
+            }
+            // Scroll to the first menu item that starts with the pressed key
+            else {
+                let key = event.key.toUpperCase();
+                let item = menuItems.find(item => item.label.toUpperCase().startsWith(key));
+                if (item) {
+                    let element = menuList.querySelector(`[itemId="${item.id}"]`);
+                    element.scrollIntoView();
+                }
+            }
+        }
+    }
+
+    // Call handleKeydown when a key is pressed
+    onMount(() => {
+        window.addEventListener('keydown', handleKeydown);
+        return () => {
+            window.removeEventListener('keydown', handleKeydown);
+        };
+    });
 
     //assign id's to the input array
     onMount(async () => {
@@ -84,9 +112,11 @@
         resetMenuProperties();
 
         if (!event.target) {
+            menuOpen = false;
             menuList.classList.add('hidden');
 
         } else if (event.target.contains(menuButton)) {
+            menuOpen = true;
             let topPos = 0;
 
             if (value) {
@@ -118,6 +148,7 @@
             }
 
         } else if (menuList.contains(event.target)) {
+            menuOpen = false;
             //find selected item in array
             let itemId = parseInt(event.target.getAttribute('itemId')); 
 
