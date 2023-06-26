@@ -13,6 +13,7 @@
     import Icon from './components/Icon/index.svelte';
     import IconButton from './components/IconButton/index.svelte';
     import Input from './components/Input/index.svelte';
+    import InputPassword from './components/InputPassword/index.svelte';
     import Label from './components/Label/index.svelte';
     import OnboardingTip from './components/OnboardingTip/index.svelte';
     import Radio from './components/Radio/index.svelte';

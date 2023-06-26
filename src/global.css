@@ -128,7 +128,7 @@ body {
 }
 
 
-/*  FONTS */
+ /* FONTS
 @font-face {
 	font-family: 'Inter';
 	font-weight: 400;
@@ -151,7 +151,7 @@ body {
 	font-style: normal;
 	src: url('https://rsms.me/inter/font-files/Inter-SemiBold.woff2?v=3.7') format('woff2'),
 	url('https://rsms.me/inter/font-files/Inter-SemiBold.woff2?v=3.7') format('woff');
-}
+} */
 
 /* Hyperlink styling */
 a {
